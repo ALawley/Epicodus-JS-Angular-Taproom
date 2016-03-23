@@ -13,7 +13,7 @@ import { EditKegDetailsComponent } from './edit-keg-details.component';
       [keg]="currentKeg" (onEditKeg)="kegToEdit = $event">
     </keg-display>
     <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
-    <edit-keg-details *ngIf="kegToEdit" [keg]="kegToEdit" (onEndEdit)="kegToEdit = null"></edit-keg-details>
+    <edit-keg-details *ngIf="kegToEdit" [keg]="kegToEdit" (onEndEdit)="kegToEdit = null" (onEndEdit)="deleteCleanup()"></edit-keg-details>
   `
 })
 
@@ -23,5 +23,12 @@ export class KegListComponent {
     this.kegList.push(
       new Keg(userInputArray[0], userInputArray[1], userInputArray[2], parseFloat(userInputArray[3]), parseFloat(userInputArray[4]))
     );
+  }
+  deleteCleanup(): void {
+    for (var i = 0; i < this.kegList.length; i++){
+      if (this.kegList[i].delete) {
+        this.kegList.splice(i, 1);
+      }
+    }
   }
 }

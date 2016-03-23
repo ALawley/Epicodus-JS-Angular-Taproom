@@ -14,6 +14,7 @@ import { Keg } from './keg.model';
       <input [(ngModel)]="keg.price" type="number" step="any" class="col-sm-8 input-lg">
       <input [(ngModel)]="keg.abv" type="number" step="any" class="col-sm-8 input-lg">
       <button (click)=endEdit() class="btn-success btn-lg add-button">Done Editing</button>
+      <button (click)=deleteKeg() class="btn-success btn-lg add-button">Delete Keg</button>
     </div>
   `
 })
@@ -24,6 +25,10 @@ export class EditKegDetailsComponent {
     this.onEndEdit = new EventEmitter();
   }
   endEdit() {
+    this.onEndEdit.emit(this.keg);
+  }
+  deleteKeg() {
+    this.keg.delete = true;
     this.onEndEdit.emit(this.keg);
   }
 }

@@ -1,10 +1,11 @@
-import { Component } from 'angular2/core';
+import { Component, EventEmitter } from 'angular2/core';
 import { Keg } from './keg.model';
 import { PourComponent } from './pour.component';
 
 @Component({
   selector: 'keg-display',
   inputs: ['keg'],
+  outputs: ['onEditKeg'],
   directives: [PourComponent],
   template: `
     <div>
@@ -13,10 +14,18 @@ import { PourComponent } from './pour.component';
       <h4>Price: $ {{ keg.price }}</h4>
       <h4>Pours Left: {{ keg.pours }}</h4>
       <pour *ngIf="keg.pours > 0" [pourKeg]="keg"></pour>
+      <button (click)=editKeg()>Edit</button>
     </div>
   `
 })
 export class KegComponent {
   public keg: Keg;
+  public onEditKeg: EventEmitter<Keg>;
+  constructor() {
+    this.onEditKeg = new EventEmitter();
+  }
+  editKeg() {
+    this.onEditKeg.emit(this.keg);
+  }
 
 }

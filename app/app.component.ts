@@ -5,7 +5,8 @@ import { Keg } from './keg.model.ts';
   selector: 'my-app',
   template: `
     <div class="container">
-      <h1>Skeleton Angular2 App!</h1>
+      <h1>Taproom!</h1>
+      <keg-list [kegList]="kegs"></keg-list>
     </div>
   `
 })

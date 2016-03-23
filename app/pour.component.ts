@@ -12,6 +12,6 @@ import { Keg } from './keg.model';
 export class PourComponent{
   public pourKeg: Keg;
   pourADrink(){
-    this.pourKeg.pours = this.pourKeg.pours - 1;
+      this.pourKeg.pours = this.pourKeg.pours - 1;  
   }
 }

@@ -3,15 +3,15 @@ import { Keg } from './keg.model';
 
 @Component({
   selector: 'pour',
-  inputs: ['keg'],
+  inputs: ['pourKeg'],
   template: `
     <button (click)="pourADrink()">Pour a Pint!</button>
   `
 })
 
 export class PourComponent{
-  public keg: Keg;
+  public pourKeg: Keg;
   pourADrink(){
-    this.keg.pours = this.keg.pours - 1;
+    this.pourKeg.pours = this.pourKeg.pours - 1;
   }
 }

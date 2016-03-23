@@ -12,7 +12,7 @@ import { PourComponent } from './pour.component';
       <h4>{{ keg.style }}, ABV: {{ keg.abv }}</h4>
       <h4>Price: $ {{ keg.price }}</h4>
       <h4>Pours Left: {{ keg.pours }}</h4>
-      <pour [keg]="keg"></pour>
+      <pour [pourKeg]="keg"></pour>
     </div>
   `
 })

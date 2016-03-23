@@ -7,12 +7,15 @@ import { Keg } from './keg.model';
   template: `
     <div class="keg-form">
       <h4>Add a Keg:</h4>
-      <input placeholder="name" class="col-sm-8 input-lg" #newName>
-      <input placeholder="brand" class="col-sm-8 input-lg" #newBrand>
-      <input placeholder="style" class="col-sm-8 input-lg" #newStyle>
-      <input placeholder="price" type="number" step="any" class="col-sm-8 input-lg" #newPrice>
-      <input placeholder="abv" type="number" step="any" class="col-sm-8 input-lg" #newAbv>
-      <button (click)="addKeg(newName, newBrand, newStyle, newPrice, newAbv)" class="btn-success btn-lg add-button">Add</button>
+      <form (submit)="addKeg(newName, newBrand, newStyle, newPrice, newAbv)">
+        <input required placeholder="name" class="col-sm-8 input-lg" #newName>
+        <input required placeholder="brand" class="col-sm-8 input-lg" #newBrand>
+        <input required placeholder="style" class="col-sm-8 input-lg" #newStyle>
+        <input required placeholder="price" type="number" step="any" class="col-sm-8 input-lg" #newPrice>
+        <input required placeholder="abv" type="number" step="any" class="col-sm-8 input-lg" #newAbv>
+        <button type="submit" class="btn-success btn-lg add-button">Add</button>
+      </form>
+    </div>
   `
 })
 
@@ -28,6 +31,12 @@ export class NewKegComponent {
     newKegInputs.push(newStyle.value);
     newKegInputs.push(newPrice.value);
     newKegInputs.push(newAbv.value);
+    // newKegInputs.forEach(input => {
+    //   if(input === "") {
+    //     console.log("bad input");
+    //     return;
+    //   }
+    // })
     this.onSubmitNewKeg.emit(newKegInputs);
     newName.value="";
     newBrand.value="";

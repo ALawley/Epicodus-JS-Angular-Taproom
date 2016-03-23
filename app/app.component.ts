@@ -1,8 +1,10 @@
 import { Component } from 'angular2/core';
-import { Keg } from './keg.model.ts';
+import { KegListComponent } from './keg-list.component';
+import { Keg } from './keg.model';
 
 @Component({
   selector: 'my-app',
+  directives: [KegListComponent],
   template: `
     <div class="container">
       <h1>Taproom!</h1>

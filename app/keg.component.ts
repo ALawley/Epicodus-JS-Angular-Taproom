@@ -8,7 +8,11 @@ import { PourComponent } from './pour.component';
   outputs: ['onEditKeg'],
   directives: [PourComponent],
   template: `
-    <div>
+    <div class="keg-display"
+    [class.green]="keg.pours > 114"
+    [class.yellow]="keg.pours > 10 && keg.pours <= 114"
+    [class.red]="keg.pours <= 10 && keg.pours > 0"
+    [class.empty]="keg.pours === 0">
       <h3>{{ keg.name }}, {{ keg.brand }}</h3>
       <h4>{{ keg.style }}, ABV: {{ keg.abv }}</h4>
       <h4>Price: $ {{ keg.price }}</h4>

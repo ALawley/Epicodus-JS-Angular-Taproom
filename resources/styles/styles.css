@@ -1,0 +1,20 @@
+.green {
+  border: 2px solid green;
+}
+
+.yellow {
+  border: 2px solid yellow;
+}
+
+.red {
+  border: 2px solid red;
+}
+
+.empty {
+  background-color: #8f8f8f;
+}
+
+.keg-display {
+  margin: 5px;
+  padding: 5px;
+}
